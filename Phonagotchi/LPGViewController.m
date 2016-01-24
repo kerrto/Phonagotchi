@@ -14,6 +14,7 @@
 - (IBAction)basketPinch:(UIPinchGestureRecognizer *)sender;
 - (IBAction)moveApple:(UIPanGestureRecognizer *)sender;
 
+@property (strong, nonatomic) IBOutlet UIImageView *feedCat;
 
 @property (nonatomic) IBOutlet UIImageView *petImageView;
 @end
@@ -103,9 +104,17 @@
         {
             netTranslation.x += translation.x;
             netTranslation.y +=translation.y;
+            
+                }
+        
+        if (CGRectIntersectsRect(self.appleImage.frame, self.feedCat.frame)) {
+                CGRect intersection = CGRectIntersection(self.appleImage.frame, self.feedCat.frame);
+                NSLog(@"%@ HEEEEEEEEEEEEEY",NSStringFromCGRect(intersection));
+            }
         }
-    }
-    }
+        }
+    
+
     
     
 

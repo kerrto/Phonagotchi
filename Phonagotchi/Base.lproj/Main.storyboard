@@ -40,6 +40,9 @@
                                     <outletCollection property="gestureRecognizers" destination="4Az-FG-Bxy" appends="YES" id="ERj-MH-aAG"/>
                                 </connections>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWn-bW-mpd">
+                                <rect key="frame" x="20" y="296" width="96" height="74"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -53,6 +56,7 @@
                     <connections>
                         <outlet property="appleImage" destination="CjZ-A6-uDD" id="jW9-j7-mDU"/>
                         <outlet property="basketImage" destination="ayA-p8-DAb" id="XMt-yz-0RE"/>
+                        <outlet property="feedCat" destination="hWn-bW-mpd" id="hbi-x3-n2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
