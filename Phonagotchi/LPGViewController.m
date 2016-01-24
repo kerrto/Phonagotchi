@@ -9,11 +9,17 @@
 #import "LPGViewController.h"
 
 @interface LPGViewController ()
-@property (strong, nonatomic) IBOutlet UIImageView *basketView;
+@property (strong, nonatomic) IBOutlet UIImageView *basketImage;
+@property (strong, nonatomic) IBOutlet UIImageView *appleImage;
+- (IBAction)basketPinch:(UIPinchGestureRecognizer *)sender;
+- (IBAction)moveApple:(UIPanGestureRecognizer *)sender;
+
+
 @property (nonatomic) IBOutlet UIImageView *petImageView;
 @end
 
 @implementation LPGViewController
+
 
 - (void)viewDidLoad
 {
@@ -26,9 +32,14 @@
     
     self.petImageView.image = [UIImage imageNamed:@"default"];
     self.petImageView.userInteractionEnabled = YES;
+    self.basketImage.userInteractionEnabled=YES;
+    self.appleImage.userInteractionEnabled=YES;
+    
     
     [self.view addSubview:self.petImageView];
     
+    //PetImageViewConstraints+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.petImageView
                                                           attribute:NSLayoutAttributeCenterX
                                                           relatedBy:NSLayoutRelationEqual
@@ -44,10 +55,46 @@
                                                           attribute:NSLayoutAttributeCenterY
                                                          multiplier:1.0
                                                            constant:0.0]];
+    
+    //Petting Cat Gesture Recognizer+++++++++++++++++++++++++++++++++++++++++++++++++++
     
     UIPanGestureRecognizer *p = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panned:)];
+    
     [self.petImageView addGestureRecognizer:p];
+    
+    UIPinchGestureRecognizer *basketPinch=[[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(basketPinch:)];
+    
+    [self.basketImage addGestureRecognizer:basketPinch];
+   
+    UIPanGestureRecognizer *moveApple=[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveApple:)];
+    [self.appleImage addGestureRecognizer:moveApple];
+
+
 }
+
+
+
+
+ //Pinching Apple Gesture Recognizer+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+- (void)basketPinch:(UIPinchGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateChanged ||
+        sender.state == UIGestureRecognizerStateBegan)
+    {self.appleImage.image=[UIImage imageNamed:@"apple.png"];
+}
+}
+
+- (void)moveApple:(UIPanGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateChanged ||
+        sender.state == UIGestureRecognizerStateBegan)
+    {
+        NSLog(@"panned");
+    }
+    }
+    
+    
 
 - (void)panned:(UIPanGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateChanged ||
@@ -59,8 +106,5 @@
         if (vel.x>500 || vel.y>500) {
             self.petImageView.image=[UIImage imageNamed:@"grumpy.png"];}
         }
-
-
-
 }
 @end

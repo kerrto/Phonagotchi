@@ -18,46 +18,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="vPH-6V-5Hb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucket.png" translatesAutoresizingMaskIntoConstraints="NO" id="ayA-p8-DAb">
+                                <rect key="frame" x="26" y="428" width="130" height="130"/>
                                 <gestureRecognizers/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucket.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ghf-x3-q8f">
-                                <rect key="frame" x="26" y="50" width="102" height="88"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="eNj-M8-n2q"/>
-                                    <constraint firstAttribute="height" constant="88" id="wqL-cG-BlJ"/>
+                                    <constraint firstAttribute="height" constant="130" id="EET-VN-580"/>
+                                    <constraint firstAttribute="width" constant="130" id="Sff-R6-aHs"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8em-GT-VaP" appends="YES" id="9Rh-zo-SqC"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qag-N0-7oJ">
-                                <rect key="frame" x="136" y="28" width="55" height="58"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CjZ-A6-uDD">
+                                <rect key="frame" x="156" y="430" width="73" height="73"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="6Df-6c-lPB"/>
-                                    <constraint firstAttribute="width" constant="55" id="tpF-Bb-fz6"/>
+                                    <constraint firstAttribute="width" constant="73" id="1wd-H7-KWH"/>
+                                    <constraint firstAttribute="height" constant="73" id="e0x-Xn-ILp"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4Az-FG-Bxy" appends="YES" id="ERj-MH-aAG"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="qag-N0-7oJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="91z-Fc-MVQ"/>
-                            <constraint firstItem="Ghf-x3-q8f" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="50" id="KO5-3p-fn1"/>
-                            <constraint firstItem="qag-N0-7oJ" firstAttribute="centerX" secondItem="vPH-6V-5Hb" secondAttribute="centerX" id="M5e-lE-z2q"/>
-                            <constraint firstItem="Ghf-x3-q8f" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="ZAz-kP-AWK"/>
-                            <constraint firstItem="qag-N0-7oJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="slh-aC-93R"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ayA-p8-DAb" secondAttribute="bottom" constant="10" id="PP0-LD-3E5"/>
+                            <constraint firstItem="ayA-p8-DAb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="bui-Xi-rQf"/>
+                            <constraint firstItem="CjZ-A6-uDD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="140" id="tVo-7H-TXi"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CjZ-A6-uDD" secondAttribute="bottom" constant="65" id="tnu-PF-4FE"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="basketView" destination="Ghf-x3-q8f" id="5n1-ph-vpF"/>
-                        <outlet property="petImageView" destination="vPH-6V-5Hb" id="OIx-xj-dWE"/>
+                        <outlet property="appleImage" destination="CjZ-A6-uDD" id="jW9-j7-mDU"/>
+                        <outlet property="basketImage" destination="ayA-p8-DAb" id="XMt-yz-0RE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="8em-GT-VaP">
+                    <connections>
+                        <action selector="basketPinch:" destination="vXZ-lx-hvc" id="VC3-yD-aiS"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="4Az-FG-Bxy">
+                    <connections>
+                        <action selector="moveApple:" destination="vXZ-lx-hvc" id="YY3-Lr-pvm"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="309"/>
         </scene>
     </scenes>
     <resources>
         <image name="bucket.png" width="273" height="297"/>
-        <image name="default.png" width="300" height="280"/>
     </resources>
 </document>
