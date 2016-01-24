@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="LPGViewController" sceneMemberID="viewController">
@@ -15,16 +17,47 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="vPH-6V-5Hb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucket.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ghf-x3-q8f">
+                                <rect key="frame" x="26" y="50" width="102" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="eNj-M8-n2q"/>
+                                    <constraint firstAttribute="height" constant="88" id="wqL-cG-BlJ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qag-N0-7oJ">
+                                <rect key="frame" x="136" y="28" width="55" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="6Df-6c-lPB"/>
+                                    <constraint firstAttribute="width" constant="55" id="tpF-Bb-fz6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qag-N0-7oJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="91z-Fc-MVQ"/>
+                            <constraint firstItem="Ghf-x3-q8f" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="50" id="KO5-3p-fn1"/>
+                            <constraint firstItem="qag-N0-7oJ" firstAttribute="centerX" secondItem="vPH-6V-5Hb" secondAttribute="centerX" id="M5e-lE-z2q"/>
+                            <constraint firstItem="Ghf-x3-q8f" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="ZAz-kP-AWK"/>
+                            <constraint firstItem="qag-N0-7oJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="slh-aC-93R"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="basketView" destination="Ghf-x3-q8f" id="5n1-ph-vpF"/>
+                        <outlet property="petImageView" destination="vPH-6V-5Hb" id="OIx-xj-dWE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="309"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
+    <resources>
+        <image name="bucket.png" width="273" height="297"/>
+        <image name="default.png" width="300" height="280"/>
+    </resources>
 </document>

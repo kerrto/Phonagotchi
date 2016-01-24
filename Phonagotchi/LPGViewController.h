@@ -10,4 +10,8 @@
 
 @interface LPGViewController : UIViewController
 
+@property (nonatomic, readonly) NSString* catGrumpiness;
+
+-(NSString*)catGrumpiness;
+
 @end
