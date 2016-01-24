@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *appleImage;
 - (IBAction)basketPinch:(UIPinchGestureRecognizer *)sender;
 - (IBAction)moveApple:(UIPanGestureRecognizer *)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *throwApple;
 
 @property (strong, nonatomic) IBOutlet UIImageView *feedCat;
 
@@ -84,7 +85,8 @@
 - (void)basketPinch:(UIPinchGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateChanged ||
         sender.state == UIGestureRecognizerStateBegan)
-    {self.appleImage.image=[UIImage imageNamed:@"apple.png"];
+    {
+      self.appleImage.transform = CGAffineTransformIdentity;        self.appleImage.image=[UIImage imageNamed:@"apple.png"];
 }
 }
 
@@ -104,20 +106,29 @@
         {
             netTranslation.x += translation.x;
             netTranslation.y +=translation.y;
-            
-                }
+        }
         
-        if (CGRectIntersectsRect(self.appleImage.frame, self.feedCat.frame)) {
+            if (CGRectIntersectsRect(self.appleImage.frame, self.feedCat.frame)) {
                 CGRect intersection = CGRectIntersection(self.appleImage.frame, self.feedCat.frame);
                 NSLog(@"%@ HEEEEEEEEEEEEEY",NSStringFromCGRect(intersection));
             self.petImageView.image=[UIImage imageNamed:@"default.png"];
+            self.appleImage.transform = CGAffineTransformIdentity;
+            self.appleImage.image=nil;
             }
-        }            
-        }
-    
+        if (CGRectIntersectsRect(self.appleImage.frame, self.throwApple.frame)) {
+            CGRect intersection = CGRectIntersection(self.appleImage.frame, self.throwApple.frame);
+            NSLog(@"%@ ThrowingApple",NSStringFromCGRect(intersection));
+            self.petImageView.image=[UIImage imageNamed:@"grumpy.png"];
+              CGRect newFrame = self.appleImage.frame;
+            newFrame.origin.y += 550;
+            [UIView animateWithDuration:1.0
+                             animations:^{
+                                 self.appleImage.frame = newFrame;
+                             }];
 
-    
-    
+        }
+        }
+        }
 
 - (void)panned:(UIPanGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateChanged ||
