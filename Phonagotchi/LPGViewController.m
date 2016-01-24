@@ -110,8 +110,9 @@
         if (CGRectIntersectsRect(self.appleImage.frame, self.feedCat.frame)) {
                 CGRect intersection = CGRectIntersection(self.appleImage.frame, self.feedCat.frame);
                 NSLog(@"%@ HEEEEEEEEEEEEEY",NSStringFromCGRect(intersection));
+            self.petImageView.image=[UIImage imageNamed:@"default.png"];
             }
-        }
+        }            
         }
     
 
