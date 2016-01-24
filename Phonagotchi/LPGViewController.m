@@ -37,7 +37,7 @@
     
     
     [self.view addSubview:self.petImageView];
-    
+   
     //PetImageViewConstraints+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.petImageView
@@ -65,7 +65,8 @@
     UIPinchGestureRecognizer *basketPinch=[[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(basketPinch:)];
     
     [self.basketImage addGestureRecognizer:basketPinch];
-   
+    [self.view bringSubviewToFront:self.appleImage];
+    
     UIPanGestureRecognizer *moveApple=[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveApple:)];
     [self.appleImage addGestureRecognizer:moveApple];
 
