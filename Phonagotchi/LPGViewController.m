@@ -90,7 +90,19 @@
     if (sender.state == UIGestureRecognizerStateChanged ||
         sender.state == UIGestureRecognizerStateBegan)
     {
-        NSLog(@"panned");
+        CGPoint netTranslation;
+        CGPoint translation=
+        [(UIPanGestureRecognizer *)sender translationInView:self.appleImage];
+        
+        sender.view.transform=CGAffineTransformMakeTranslation (
+        netTranslation.x +translation.x,
+        netTranslation.y +translation.y);
+        
+        if (sender.state ==UIGestureRecognizerStateEnded)
+        {
+            netTranslation.x += translation.x;
+            netTranslation.y +=translation.y;
+        }
     }
     }
     
