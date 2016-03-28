@@ -102,6 +102,8 @@
         netTranslation.x +translation.x,
         netTranslation.y +translation.y);
         
+
+        
         if (sender.state ==UIGestureRecognizerStateEnded)
         {
             netTranslation.x += translation.x;
@@ -109,15 +111,13 @@
         }
         
             if (CGRectIntersectsRect(self.appleImage.frame, self.feedCat.frame)) {
-                CGRect intersection = CGRectIntersection(self.appleImage.frame, self.feedCat.frame);
-                NSLog(@"%@ HEEEEEEEEEEEEEY",NSStringFromCGRect(intersection));
+                
             self.petImageView.image=[UIImage imageNamed:@"default.png"];
             self.appleImage.transform = CGAffineTransformIdentity;
             self.appleImage.image=nil;
             }
         if (CGRectIntersectsRect(self.appleImage.frame, self.throwApple.frame)) {
-            CGRect intersection = CGRectIntersection(self.appleImage.frame, self.throwApple.frame);
-            NSLog(@"%@ ThrowingApple",NSStringFromCGRect(intersection));
+            
             self.petImageView.image=[UIImage imageNamed:@"grumpy.png"];
               CGRect newFrame = self.appleImage.frame;
             newFrame.origin.y += 550;
